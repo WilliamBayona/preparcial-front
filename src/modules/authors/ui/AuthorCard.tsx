@@ -16,7 +16,6 @@ interface CardProps {
 
 
 
-
 // 2. Our component now accepts a ‘props' object that conforms to the CardProps shape.
 const AuthorCard = ({ id, birthDate, description, image, name, onDelete }: CardProps) => {
 

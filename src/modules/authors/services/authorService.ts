@@ -39,3 +39,39 @@ export const deleteAuthor = (id: string): Promise<void> => {
     method: "DELETE",
   });
 }
+
+// Hacer fetch a un libro por ID de autor y de libro
+export const fetchBookById = (authorId: string, bookId: string): Promise<any> => {
+  return fetcher<any>(`/api/authors/${authorId}/books/${bookId}/`);
+}
+
+// Hacer fetch a todos los libros
+export const fetchAllBooks = (): Promise<any[]> => {
+  return fetcher<any[]>(`/api/books`);
+}
+
+// Hacer fetch a todos los premios
+export const fetchAllPrize = (): Promise<any[]> => {
+  return fetcher<any[]>(`/api/prizes`);
+}
+
+//Hacer fetch a un libro por ID  de autor y de libro
+export const fetchPrizeById = (authorId: string, prizeId: string): Promise<any> => {
+  return fetcher<any>(`/api/prizes/${prizeId}/author/${authorId}/`);
+}
+
+// Crear un nuevo libro
+export const createBook = (authorId: string, data: any): Promise<any> => {
+  return fetcher<any>(`/api/authors/${authorId}/books`, {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+// Crear un nuevo premio
+export const createPrize = (authorId: string, data: any): Promise<any> => {
+  return fetcher<any>(`/api/authors/${authorId}/prizes`, {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
